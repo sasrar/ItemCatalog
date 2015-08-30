@@ -1,14 +1,5 @@
-{% extends "main.html" %}
+{% extends "mainSub.html" %}
 {% block content %}
-	<div class="row divider green">
-		<div class="col-md-12"></div>
-	</div>
-	<div class="row banner menu">
-		<div class="col-md-11 col-md-offset-1 padding-none">
-			<h1>Catalog App</h1>
-		</div>
-	</div>
-
 	<div class = 'flash'>
 		{% with messages = get_flashed_messages() %}
 	    	{% if messages %}

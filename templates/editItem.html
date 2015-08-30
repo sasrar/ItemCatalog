@@ -1,13 +1,5 @@
-{% extends "main.html" %}
+{% extends "mainSub.html" %}
 {% block content %}
-	<div class="row divider green">
-		<div class="col-md-12"></div>
-	</div>
-	<div class="row banner menu">
-		<div class="col-md-11 col-md-offset-1 padding-none">
-			<h1>Edit Item</h1>
-		</div>
-	</div>
 	<div class="row">
 		<div class="col-md-6 col-md-offset-1 padding-top">
 			<form action="{{url_for('editItem', item = item.name)}}" method = "post">
