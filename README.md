@@ -1,5 +1,19 @@
 # Item Catalog App
 
+## Contents
+**Introduction**
+**Requirements**
+**Running this app**
+
+
+## Introduction
+The Item Catalog app displays a list of items within a variety of categories. It provides a user registration and authentication system. Registered users will have the ability to post, edit and delete their own items.
+
+## Requirements
+* Python (https://www.python.org/downloads/)
+* SqlAlchemy (http://www.sqlalchemy.org/download.html)
+* Flask (http://flask.pocoo.org/)
+* OAuth2Client (https://github.com/google/oauth2client)
 
 ## Running the Item Catalog App
 
