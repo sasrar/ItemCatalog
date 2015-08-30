@@ -21,7 +21,7 @@
         <div id="signInButton">
           <span class="g-signin"
             data-scope="openid email"
-            data-clientid="13140951618-15nik769cellkubaqnjk5facdib2dh4d.apps.googleusercontent.com"
+            data-clientid="510003041886-3gosg7tqni5fscbfjv28p52nlm0ub0dr.apps.googleusercontent.com"
             data-redirecturi="postmessage"
             data-accesstype="offline"
             data-cookiepolicy="single_host_origin"
@@ -50,21 +50,20 @@ function signInCallback(authResult) {
         // Handle or verify the server response if necessary.
         if (result) {
           $('#result').html('Login Successful!</br>'+ result + '</br>Redirecting...')
-         setTimeout(function() {
-          window.location.href = "/restaurant";
-         }, 4000);
-          
-
-      } else if (authResult['error']) {
-
-    console.log('There was an error: ' + authResult['error']);
-  } else {
-        $('#result').html('Failed to make a server-side call. Check your configuration and console.');
-         }
+            setTimeout(function() {
+              window.location.href = "/catalog/";
+            }, 4000);
+        } else if (authResult['error']) {
+          console.log('There was an error: ' + authResult['error']);
+        } else {
+          $('#result').html('Failed to make a server-side call. Check your configuration and console.');
+        }
 
       }
       
-  }); } }
+    });
+  }
+}
 </script>
 
 
@@ -128,7 +127,7 @@ function signInCallback(authResult) {
   }
 </script>
 
-
+<!--
 <button>
 	<fb:login-button scope="public_profile,email" onlogin="sendTokenToServer();">
 		<a href='javascript:sendTokenToServer()'>Login with Facebook</a>
@@ -140,7 +139,7 @@ function signInCallback(authResult) {
   data-width="450"
   data-show-faces="true">
 </div>
-
+-->
 <!--END FACEBOOK SIGN IN -->
 </body>
 </html>
