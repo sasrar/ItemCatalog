@@ -1,9 +1,9 @@
 # Item Catalog App
 
 ## Contents
-**Introduction**
-**Requirements**
-**Running this app**
+* Introduction
+* Requirements
+* Running this app
 
 
 ## Introduction
