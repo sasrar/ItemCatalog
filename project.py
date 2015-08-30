@@ -18,7 +18,7 @@ import requests
 CLIENT_ID = json.loads(
   open('client_secrets.json', 'r').read())['web']['client_id']
 
-#Connect to Database and create database session
+# Connect to Database and create database session
 engine = create_engine('sqlite:///catalogItems.db')
 Base.metadata.bind = engine
 
@@ -31,12 +31,13 @@ def showLogin():
     login_session['state'] = state
     return render_template("login.html", STATE=state)
 
+# Show catalog data in json format
 @app.route('/catalog.json/')
 def catalogJSON():
     categories = session.query(Category).all()
     return jsonify(Category= [c.serialize for c in categories])
 
-#Show all categories
+# Show all categories
 @app.route('/')
 @app.route('/catalog/')
 @app.route('/catalog/<category>/')
@@ -55,7 +56,7 @@ def showCatalog(category=""):
     return render_template('categories.html', categories = categories, items = items, category_name = category.name)
 
 
-#Create a new item
+# Create a new item
 @app.route('/catalog/new/',methods=['GET','POST'])
 def newItem():
   if 'username' not in login_session:
@@ -73,7 +74,7 @@ def newItem():
     categories = session.query(Category).order_by(asc(Category.name))
     return render_template('newItem.html', categories = categories)
 
-#Show an item
+# Show an item
 @app.route('/catalog/<category>/<item>/',methods=['GET','POST'])
 def showItem(category, item):
   category = session.query(Category).filter_by(name = category).one()
@@ -84,7 +85,7 @@ def showItem(category, item):
   else:
     return render_template('item.html', category = category, item = item)
 
-#Edit an item
+# Edit an item
 @app.route('/catalog/<item>/edit/', methods=['GET','POST'])
 def editItem(item):
   if 'username' not in login_session:
@@ -108,7 +109,7 @@ def editItem(item):
     return render_template('editItem.html', item = editedItem, categories = categories)
 
 
-#Delete an item
+# Delete an item
 @app.route('/catalog/<item>/delete/', methods=['GET','POST'])
 def deleteItem(item):
   if 'username' not in login_session:
@@ -124,7 +125,7 @@ def deleteItem(item):
   else:
     return render_template('deleteItem.html', item = itemToDelete)
 
-#Connect using google+ account
+# Connect using google+ account
 @app.route('/gconnect', methods=['POST'])
 def gconnect():
   if request.args.get('state') != login_session['state']:
@@ -211,6 +212,7 @@ def gconnect():
   print "done!"
   return output
 
+# Disconnect user
 @app.route('/gdisconnect')
 def gdisconnect():
   # Only disconnect a connected user.
