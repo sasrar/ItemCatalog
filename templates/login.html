@@ -1,6 +1,6 @@
-<head>
-
-  <!--LOAD PRE-REQUISITES FOR GOOGLE SIGN IN -->
+{% extends "mainSub.html" %}
+{% block content %}
+<!--LOAD PRE-REQUISITES FOR GOOGLE SIGN IN -->
    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js">
   </script>
 
@@ -8,12 +8,12 @@
 
 <!-- END PRE-REQUISITES FOR GOOGLE SIGN IN -->
 
-
-</head>
-
-
-<body>  
-
+<div class="row padding-top">
+    <div class="col-md-1"></div>
+    <div class="col-md-10 padding-none">
+    </div>
+    <div class="col-md-1"></div>
+  </div>
 
 <!-- GOOGLE PLUS SIGN IN-->
 
@@ -126,20 +126,4 @@ function signInCallback(authResult) {
     });
   }
 </script>
-
-<!--
-<button>
-	<fb:login-button scope="public_profile,email" onlogin="sendTokenToServer();">
-		<a href='javascript:sendTokenToServer()'>Login with Facebook</a>
-	</fb:login-button>
-</button>
-<div
-  class="fb-like"
-  data-share="true"
-  data-width="450"
-  data-show-faces="true">
-</div>
--->
-<!--END FACEBOOK SIGN IN -->
-</body>
-</html>
+{% endblock %}
